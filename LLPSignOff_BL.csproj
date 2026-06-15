@@ -1,0 +1,2643 @@
+﻿<Project DefaultTargets="Build"
+		 
+		 xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+		 ToolsVersion="14.0">
+    <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD3096B6-9D30-4623-AA05-E93CB56CEF09}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ssLLPSignOff_BL</RootNamespace>
+    <AssemblyName>LLPSignOff_BL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+
+
+    
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>bin\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>bin\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>bin\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>bin\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="OutSystems.RuntimeCommon">
+      <Name>OutSystems.RuntimeCommon</Name>
+      <HintPath>bin\OutSystems.RuntimeCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.HubEdition.RuntimePlatform">
+      <Name>OutSystems.HubEdition.RuntimePlatform</Name>
+      <HintPath>bin\OutSystems.HubEdition.RuntimePlatform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.HubEdition.DatabaseAbstractionLayer">
+      <Name>OutSystems.HubEdition.DatabaseAbstractionLayer</Name>
+      <HintPath>bin\OutSystems.HubEdition.DatabaseAbstractionLayer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.PluginAPI">
+      <Name>OutSystems.PluginAPI</Name>
+      <HintPath>bin\OutSystems.PluginAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.HubEdition.WebWidgets">
+      <Name>OutSystems.HubEdition.WebWidgets</Name>
+      <HintPath>bin\OutSystems.HubEdition.WebWidgets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.WidgetsRuntimeAPI">
+      <Name>OutSystems.WidgetsRuntimeAPI</Name>
+      <HintPath>bin\OutSystems.WidgetsRuntimeAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Plugin.Widgets.Runtime">
+      <Name>OutSystems.Plugin.Widgets.Runtime</Name>
+      <HintPath>Plugins\OutSystems.Plugin.Widgets.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.RESTService.Runtime">
+      <Name>OutSystems.RESTService.Runtime</Name>
+      <HintPath>bin\OutSystems.RESTService.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Auditing">
+      <Name>OutSystems.Auditing</Name>
+      <HintPath>..\bin\OutSystems.Auditing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Logging">
+      <Name>OutSystems.Logging</Name>
+      <HintPath>..\bin\OutSystems.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Spreadsheet">
+      <Name>OutSystems.Spreadsheet</Name>
+      <HintPath>bin\OutSystems.Spreadsheet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Name>Newtonsoft.Json</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Name>Newtonsoft.Json.Bson</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.Bson.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GemBox.Spreadsheet.dll">
+      <Name>GemBox.Spreadsheet.dll</Name>
+      <HintPath>bin\GemBox.Spreadsheet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stubble.Core.dll">
+      <Name>Stubble.Core.dll</Name>
+      <HintPath>bin\Stubble.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable.dll">
+      <Name>System.Collections.Immutable.dll</Name>
+      <HintPath>bin\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.Session">
+      <Name>OutSystems.Application.Session</Name>
+      <HintPath>bin\OutSystems.Application.Session.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.Initialization.ASPNet">
+      <Name>OutSystems.Application.Initialization.ASPNet</Name>
+      <HintPath>bin\OutSystems.Application.Initialization.ASPNet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.Core">
+      <Name>OutSystems.Application.Core</Name>
+      <HintPath>bin\OutSystems.Application.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Logging.Database">
+      <Name>OutSystems.Logging.Database</Name>
+      <HintPath>bin\OutSystems.Logging.Database.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.ModuleServices">
+      <Name>OutSystems.ModuleServices</Name>
+      <HintPath>bin\OutSystems.ModuleServices.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.DebuggerClient">
+      <Name>OutSystems.DebuggerClient</Name>
+      <HintPath>bin\OutSystems.DebuggerClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.Session.Abstractions">
+      <Name>OutSystems.Application.Session.Abstractions</Name>
+      <HintPath>bin\OutSystems.Application.Session.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.Session.Persistent">
+      <Name>OutSystems.Application.Session.Persistent</Name>
+      <HintPath>bin\OutSystems.Application.Session.Persistent.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.Application.ManifestGeneration">
+      <Name>OutSystems.Application.ManifestGeneration</Name>
+      <HintPath>bin\OutSystems.Application.ManifestGeneration.dll</HintPath>
+    <Private>False</Private>
+    </Reference>
+    <Reference Include="OutSystems.RESTService.Runtime.Abstractions">
+      <Name>OutSystems.RESTService.Runtime.Abstractions</Name>
+      <HintPath>bin\OutSystems.RESTService.Runtime.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+<!-- DO NOT REMOVE THIS COMMENT: ADD_NEW_PROJECT -->
+    
+    <ProjectReference Include="referencesProxy\LLPSignOff_BLReferencesProxy.csproj">
+      <Name>LLPSignOff_BLReferencesProxy</Name>
+      <Project>{F3BEB653-9E30-4E65-A8BB-3192461CBF8D}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="CustomClients\SignOffAPI\LLPSignOff_BL.SignOffAPI.csproj">
+      <Name>LLPSignOff_BL.CcSignOffAPI</Name>
+      <Project>{68D5661B-C13B-45F2-C47A-BC1705789A36}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="netstandard" />
+
+  </ItemGroup>
+  <ItemGroup>
+	  <Compile Include="AppUtils.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_download.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="_download.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>_download.aspx</DependentUpon>
+	  </Compile>
+	  <Content Include="_osjs.js">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="Exceptions.IncorrectFileName.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.ScriptDetected.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.ActiveQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.IncorrectfileExt.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.IncorrectMonth.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.UserException1.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.NotLLP_SOT_Local_Requester.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Exceptions.NotLLP_SOT_GCR_Reviewer.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionOnSessionStart.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionOnBeginWebRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ExtendedActions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Records.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="AnonymousJsonStructureClasses.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="RecordLists.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="scripts\LLPSignOff_BL.model.js">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="SitePropertyKeys.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Images.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_image.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="_image.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>_image.aspx</DependentUpon>
+	  </Compile>
+	  <Content Include="_Default.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="Properties.ESpace.KqPO0NpCN6EW2hhZTZoFg0g.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_ping.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_ping.html">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_WebErrorPage.css">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_WebErrorPage.js">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_WebErrorPage.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_status.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_preloader.js">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="AbstractProcess.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="AbstractProcessActivity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ActivityExecutor.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_ActivityHandler.asmx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="_ActivityHandler.asmx.cs">
+      <SubType>Component</SubType>
+      <DependentUpon>_ActivityHandler.asmx</DependentUpon>
+	  </Compile>
+	  <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_TimerHandler.asmx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="_TimerHandler.asmx.cs">
+      <SubType>Component</SubType>
+      <DependentUpon>_TimerHandler.asmx</DependentUpon>
+	  </Compile>
+	  <Compile Include="_RunningInfo.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_debugger.asmx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="_debuggerException.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="TypeFactory.RCExcelFileRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLExcelOutputRecordList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelOutputRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelTableRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelPictureRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelCellStyleRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelMergeCellsRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCCellFormatRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCBorderStyleRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLNewSheetRecordList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCNewSheetRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLTextRecordList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCTextRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLIntegerLiteralRecordList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCIntegerLiteralRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCSignOffRequest_RequestRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCNPLPortfolioRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCNonPMAAdjustmentRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCWriteOffSectionBRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCNPLPortfolioDetailsRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCNPLPortfolioDetailRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCBaseEntityForSignOffRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCWriteOffSectionARecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLStr_WorKFlowDecisionList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RLIntegerLiteralList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Functions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <EmbeddedResource Include="LLPSignOff_BLLanguage.resources">
+      <SubType>Component</SubType>
+      <LogicalName>LLPSignOff_BLLanguage.resources</LogicalName>
+	  </EmbeddedResource>
+	  <Content Include="precache.manifest">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="Global.asax">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+	  </Compile>
+	  <Content Include="Web.config">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="FeatureTogglesStateDuringCompilation.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="DefaultValues.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="_CallbackInformation.aspx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="scripts\LLPSignOff_BL.referencesHealth.js">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="AbstractProcExcRefreshBookedForRequestPortfolioCategoryActivity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequestPortfolioCategory.ActExecAutomaticActivity1.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequestPortfolioCategory.ActExecStart0ec733a918be404b8d2f2fa87077cbe7.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequestPortfolioCategory.ActExecEnd543e2370ca884582a9c96a174c37ce8f.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequestPortfolioCategory.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="AbstractProcExcRefreshBookedForRequestActivity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequest.ActExecAutomaticActivity1.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequest.ActExecStart0db7f2ff05594b05b4e43429ebc26655.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequest.ActExecEnd5a71c60543464e2ead72458472cf536e.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="ProcExcRefreshBookedForRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_NonPMAAdjustmentData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrentUserYtdRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENLLP_BaseEntityBancairEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENLLP_BaseEntityBancairEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENUserEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENUserEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_AutofitColumns.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkbook_Close.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_SelectByIndex.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkbook_Open.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_Hide_Show.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_SetActive.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkbook_Open_BinaryData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCell_WriteByIndexWithFormat.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkbook_Create.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRow_Delete.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkbook_GetBinaryData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_GetName.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCell_Write.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_SelectByName.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_Rename.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorksheet_Select.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCell_WriteByIndex.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCell_ReadByIndex.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTCellFormatStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STCellFormatStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STCellFormatStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNewSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNewSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STNewSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTBorderStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STBorderStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STBorderStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelMergeCellsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelMergeCellsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelMergeCellsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelCellStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelCellStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelCellStyleStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelTableStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelTableStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelTableStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelFileStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelFileStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelFileStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelOutputStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelOutputStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelOutputStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelPictureStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelPictureStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelPictureStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENCountryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENCountryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENCurrencyEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENCurrencyEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENGroupTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENGroupTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENGroupTypeEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENGroupEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENGroupEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENUserGroupRoleEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENUserGroupRoleEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENUserGroupEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENUserGroupEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRegex_Replace.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionString_Split.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRegex_Search.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionString_Join.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTTextStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STTextStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STTextStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionBuildSafe_InClauseIntegerList.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTIntegerLiteralStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STIntegerLiteralStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STIntegerLiteralStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTTextLiteralStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STTextLiteralStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdate_SignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPreviousQuarter2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_NPLPortfolio.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_PMAKeyQuarterYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdateAdjustments.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeleteWriteOffSectionBbyId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetQuarterFromRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMHistory.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDelete_NPLProtfolio.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateUpdate_WorkflowSignOffRequest_RemarksForSys.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMAnnex.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDelete_PMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_SignOffProcesQuarterYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNextQuarter2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMYearMonth.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateEmptySheetsForNewQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDelete_PMAKeyQuarterYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_PMAAdjustmentDetail.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_SyncSignOffSheetForGCRAndYTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_YTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_PMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_DocBinary.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRatesForRequest2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdateWriteOffSectionB2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPreviousQuarters2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateEmptySheetsForQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCopyEndProvisionLayer1PrevQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_NPLPortfolioDetails.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_SignOffRequestHistory.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_NPLPortfolioDetail.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_YTDRequestComment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionInitOverlay.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdateBaseEntityForSignOff2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMRemark.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdateWriteOffSectionA2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeleteAdjustments.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_UserSettings.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSave_SignOffSheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_CreateQuarterRemark.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMRate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_SignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_WorkflowSignOffRequest_Remarks.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSetAllQuartersInactive.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkFlow_SignOffRequest_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkFlow_SignOffRequest_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkFlow_SignOffRequest_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkFlow_EOM_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkFlow_EOM_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkFlow_EOM_HistoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowEOMProces_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowEOMProces_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowEOMProces_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENPortfolioEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENPortfolioEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENPortfolioEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENEOMRatesProcesMonthYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENEOMRatesProcesMonthYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENEOMRatesProcesMonthYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowTransitionsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowTransitionsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowTransitionsEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENIndustryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENIndustryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENAdjustmentRatingSystemEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENAdjustmentRatingSystemEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowDecision2EntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowDecision2EntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowDecision2EntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENNPLPortfolioEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENNPLPortfolioEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENNPLPortfolioEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENSignOffSheetEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENSignOffSheetEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENSignOffSheetEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENQuarterEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENQuarterEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENQuarterEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENBalanceIndicatorEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENBalanceIndicatorEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENBalanceIndicatorEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENYTDCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENYTDCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENYTDCategoryEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENMonthEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENMonthEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENMonthEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENLayerEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENLayerEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENLayerEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENSheetFlagsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENSheetFlagsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENSignOffProcesQuarterYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENSignOffProcesQuarterYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowValidateEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowValidateEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowValidateEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENNPLPortfolioDetailsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENNPLPortfolioDetailsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENNPLPortfolioDetailsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENYTDRequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENYTDRequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENYTDRequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENCurrencyConversionRatesEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENCurrencyConversionRatesEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENCurrencyConversionRatesEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENUserSettingsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENUserSettingsEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENAdjustmentTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENAdjustmentTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENAdjustmentTypeEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENSignOffRequest_RequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENSignOffRequest_RequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENSignOffRequest_RequestEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENPMAAdjustmentDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENPMAAdjustmentDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENPMAAdjustmentDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENCreateQuarter_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENCreateQuarter_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENCreateQuarter_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENPMAKeyQuarterYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENPMAKeyQuarterYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENPMAKeyQuarterYearEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENYTDRequestCommentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENYTDRequestCommentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWriteOffSectionBEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWriteOffSectionBEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWriteOffSectionBEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENBaseEntityForSignOffEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENBaseEntityForSignOffEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENBaseEntityForSignOffEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENProvisionCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENProvisionCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENProvisionCategoryEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENAdjustmentStatusEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENAdjustmentStatusEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENAdjustmentStatusEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENLLP_BooleanEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENLLP_BooleanEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENLLP_BooleanEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENYTDCategoryConfigEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENYTDCategoryConfigEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENCurrencyModeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENCurrencyModeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENCurrencyModeEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENDocBinaryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENDocBinaryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENDocBinaryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowStatusEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowStatusEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowStatusEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENNPLPortfolioCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENNPLPortfolioCategoryEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENNPLPortfolioCategoryEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENNPLPortfolioDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENNPLPortfolioDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENNPLPortfolioDetailEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowTypeEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowTypeEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENEOM_AnnexEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENEOM_AnnexEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENEOM_AnnexEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENNonPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENNonPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENNonPMAAdjustmentEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWriteOffSectionAEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWriteOffSectionAEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWriteOffSectionAEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENAdjustmentApproachEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENAdjustmentApproachEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENAdjustmentApproachEntityRecordTypeFactoryImpl.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONENWorkflowSignOffRequest_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Entities.ENWorkflowSignOffRequest_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.ENWorkflowSignOffRequest_RemarksEntityRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTQuarter3Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STQuarter3Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STQuarter3Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckUserAccessForBaseEntity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionisNonWorkflowSavingAllowed.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionisAdminSavingAllowed.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckUserAccessForSignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPermittedYTDWorkflowDecisions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPermittedWorkflowDecisions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckUserHasAnyRole.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckAdminAccess.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsYTDTransitionByUserAllowed.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsTransitionByUserAllowed.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetBaseEntityForLoggedInUser.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsYTDEditable.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionisSavingAllowed.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetBaseEntityForLoggedInUserAsRequester.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsUserRequester.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsUserGCRReviewer.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_WorKFlowDecisionStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_WorKFlowDecisionStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STStr_WorKFlowDecisionStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExcel_Export_SetTable.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExcel_Export_GenerateFile.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Roles.ssLLP_SOT_GCR_Reviewer.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Roles.ssLLP_SOT_Local_Requester.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetFileMimeType.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateXSS.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSendAutoGCRRefreshFailure_Mail.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionArrangeData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionTotalConversionForNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_NPLPortfolioByRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadVortexCognos_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayerSheetRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadBaseEntitySheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_NPLPortfolio.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCopyPreviousQuarterNonPMA_v2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_UploadYTDResult.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNonPMAAdjustmentById.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_ProvisionCategoryFullName_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionConversionUploadedYTDForSave.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_IFRS9Model_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionProcess_UploadPMA.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIs_EnableActual.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayer7.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBookedForWholeRequestFXEur.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsBaseEntityHasaPreviousSignOffSheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNonPMAAdjustmentTypes_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRequestMonth3OfQuarterLoaded.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAdjustPMAStatusByAdjustmentKey.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBookedForWholeRequestFXOC.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncAfterUpload_tRates.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_UploadedYtDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportAllLayerToExcel_Currencymode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_Portfolio_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_UploadnonPMAResult.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportAllLayersExcel_New_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_VortexCognosbyAdvancedExcel.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBooked.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrentUser_CountryYtdRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportCountryLayers1234Dump_NewTest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetActiveBEsNotInQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCopyPreviousQuarterNonPMA.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_PMAAdjustmentDataByPMAAdjustmenttId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_NPLPortfolio_DataGrid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsActiveQuarterBySignOffRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_YTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetWriteOff_SectionA.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSave_UploadNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRefreshAllAdjustmentOverviews.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_UploadedYTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_AdjustmentStatuses_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCopyPreviousQuarterPMA.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateYtDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPreviousQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_StockProvisionsclosingbalancereportingperiod.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_TotalsLayerSheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateNonPMAAdjustmentTemplate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_SignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRemarksForEOMRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrentUser_Country.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportLayers1234Dump.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdate_SignOffRequest_Status.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayer3.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_SaveYTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_NPLPortfolio_Wb.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsAutoGCRRefreshEligableToRun.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateNewQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetLayerSheetForExcel.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_StaticTabels.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBookedFXChangesOCMode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_SheetFlags.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_UploadVortexCognosResult.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayer1.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_DefaultUnitNumber.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWriteOffSectionBValid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidatePMA.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_YTDSignOffPerYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_PMAAdjustmentKeyForBaseEntity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_SaveYTDDisposalRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionYTD_RefreshPage.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportCountryLayers1234Dump.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetBaseEntityData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayer4.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRefreshGCR_YTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_YTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidatePMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetYtdResults_For_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRemarksForCreateQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAdjustPMAStatus.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDownload_EOM_Rates.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRequest_Guid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_YtDForeignexchangeandothermovements.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetYTDSignOffPerYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCountryAggregatedLayerSheetForDisplay.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDelete_NPLPortfolio.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateBaseEntityForSignOff.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdate_YTDRequest_Status.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBookingToBaseEntitySheetsFXChangesEurMode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNonPMAAdjustmentData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_Validate_YTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionisMonth3OfQuarterLoaded.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncAll.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportCountryLayers1234Dump_New.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_YTDRequest_ReadOnly.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_UploadedYTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionLocalPMAExport.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_NetRemeasurements_SumofIncreaseRelease.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetAdjustmentTypes_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateUpdate_Retail.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_UploadedPMAAdjustmetData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_UploadedPMALocalAddjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_Vortextemplatedata.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSaveSignoffsheetandAutodecline.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionConversionYTDForSave.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncSignOffSheets_ToGCROverview.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_Quarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeactivate_BaseEntity.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRemarksForRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_StockProvisionsOpeningBalance.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_PMAAdjustments_For_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetYTDRequestDisposals.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportToExcel_FrontSheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetDecisionsBySignOffRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetLayerAdjustments.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadYTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBookingToBaseEntitySheets.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportAdjustmentsDump.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_UploadedYTDValues.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWorkBookSheetsHide.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSaveAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_PMAAdjustmentData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeletePMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_YTDValues.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNonPMAAdjustmentsTemplate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadPMA_V3.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionEOM_SetWorkflowStatus.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetWriteOffSectionBbyId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAutomaticGCRRefresh.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionisRequestIdGCR.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_GeneralWorkflow.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_MandatoryMonthRatesForQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_VortexCognosbyExcelToRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetYTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetHomePageBlocks.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateQuarterAndAddBaseEntities.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionConversionForNPLPortfolioSalesDetails.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCountryAggregatedYTDforDisplay.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionIsReadyForIPC_Valid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBookingToBaseEntitySheetsFXChangesOCMode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_NPLPortfolioDataGridByRequestId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBookedFXChangesEurMode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCopyPreviousQuarterPMA_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckYTDRowData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_SaveYTDDisposalRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrentUser_CountrySignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCountryAggregatedTotalsLayerSheetForDisplay.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_UploadedYTDTemplate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_InVortex_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetStockProvisionsOpeningBalance.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpload_EOM_Rates.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionBlockEditionForEvenRows.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetPreviousQuarters.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeleteNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionProcess_NonPMAAdjustmentData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionDeleteWriteOffSecBbyId.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_UploadPMAResult_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionConversionForNPLPortfolioSalesDetails_Wb.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_UploadedPMACentralAddjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdateYTDNetremeasurement.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_NPLPortfolio.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionTextListToText.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionProcess__UploadVortexCognosResult.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAggregateAdjustmentsToOverlaySheet.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCheckAndAutoDeclineYTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUploadVortexCognos_V3.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportLayer6WriteOff.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetLayerHeaders.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_Approach_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_UserSettings.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_PermittedWorkflowDecisions.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdateYTDRiskcosts.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_SingoffForYTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGenerateCountryLevelExcel.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_VortexCognosRecords.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionTotalPMAAdjustmentConversionForSave.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetYTDComment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCentralPMAExport.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateLayer5.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportYtdToExcel.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_GetYTDRequest_ReadOnly.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncCentralAdjustmentsToBaseEntitySheets.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNextQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateUpdateRemarkForAutoGCRRefresh.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetNumberOfDecimalsForGrid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportGCRLayerToExcel_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrentUserSignOffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_ReadyForIPC.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrencyCode.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateNonPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetQuartersBysignoffRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncBaseEntityLayersToBookedForWholeRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionResetYTDValues.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetCurrencyBySignoffrequestid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetUploadedYTDCategory_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionExportCountryLayers1234Dump_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionMaintainActiveQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetAggregationLayerHeaders.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_RefreshBaseEntity_YTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionUpdate_UploadedVortexCognos.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGCRRefresh.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_WorkflowSignOffRequest_RemarksBL.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionProcess_BaseEntityData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRatesForRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateRequestsForQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetRequestStatus.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncWriteOffReversal.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionTotalConversionForSave.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetWriteOffSectionB2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidateActiveQuarterByMonthAndYear.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_Industry_Template.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSaveLayerSheetRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionValidate_UploadedPMAAdjustmetDetailsData.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdate_EOMRemark2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_VortexCognosTemplate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSyncYTDWithBooked_V2.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGetLayerSheetForDisplay.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionWriteOffSectionCValid.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreate_PMAAdjustmentTemplate.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_TotalsLayer1SheetForExcel.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSave_YTDRequest.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSetAdjustmentStatus.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAPI_CreateOrUpdate_YTDRequestComment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAddPMAAdjustment.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionRefreshBaseEntity_YTD.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionSet_UserSettings.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionAddBaseEntitiesToQuarter.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionBlockYTDForEvenRows.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionConvertToUnit.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionGet_UploadVortexCognosResult.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Actions.ActionCreateOrUpdateWriteOffSecB.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTDDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTDDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTEOMRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STEOMRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTAggYTD_RequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STAggYTD_RequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSQLList_CountryYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSQLList_CountryYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTVortexCognosDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STVortexCognosDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMAAdjumentsDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMAAdjumentsDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTDData_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTDData_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTList_HomePageYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STList_HomePageYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploadedExcel_PMAAdjument_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploadedExcel_PMAAdjument_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploadedPMAAdjumentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploadedPMAAdjumentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSQLList_HomePageSignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSQLList_HomePageSignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploadedExcel_LocalAdjustmentPMAStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploadedExcel_LocalAdjustmentPMAStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSQLList_CountrySignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSQLList_CountrySignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_TotalsLayer1SheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_TotalsLayer1SheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTValidationNonPMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STValidationNonPMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMAQuarterYearStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMAQuarterYearStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_InvalidAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_InvalidAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_RetailTotalsLayer1SheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_RetailTotalsLayer1SheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExportUploadYtddataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExportUploadYtddataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploadedExcel_LocalAdjustmentPMA_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploadedExcel_LocalAdjustmentPMA_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploadedPMAAdjument_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploadedPMAAdjument_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTInvalidAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STInvalidAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNPL_Portfolio_WbStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNPL_Portfolio_WbStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTD_RequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTD_RequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploadedVortexCognos_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploadedVortexCognos_ResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_PMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_PMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTDSignOffPerQuarterStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTDSignOffPerQuarterStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUserAccessibleCountries2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUserAccessibleCountries2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploadYTDResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploadYTDResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcel_BaseEntitiesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcel_BaseEntitiesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_PMAAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_PMAAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTCreateQuarterRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STCreateQuarterRemarksStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTDecimalStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STDecimalStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTWorKFlowDecisionStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STWorKFlowDecisionStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSql_YTDrefresh_V2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSql_YTDrefresh_V2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_NonPMAAdjustmentResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_NonPMAAdjustmentResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMAAdjustmentRecord1Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMAAdjustmentRecord1Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMA_AdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMA_AdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTAdjustmentsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STAdjustmentsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_PMAAdjumentsDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_PMAAdjumentsDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTCopySignoffStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STCopySignoffStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_InvalidLocalAdjustmentPMADataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_InvalidLocalAdjustmentPMADataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMAdjustmentsForUploadTemplateStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMAdjustmentsForUploadTemplateStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTHomePageCountStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STHomePageCountStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTList_HomePageSignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STList_HomePageSignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStrLayer1SheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStrLayer1SheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTBaseEntityDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STBaseEntityDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_AdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_AdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploadedExcel_NonPMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploadedExcel_NonPMAAdjustmentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExchangeRatesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExchangeRatesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_LocalAdjustmentPMADetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_LocalAdjustmentPMADetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploaded_LocalAdjustmentPMADataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploaded_LocalAdjustmentPMADataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTCountryDumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STCountryDumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStrLayer1SheetData2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStrLayer1SheetData2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNPL_PortfolioStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNPL_PortfolioStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSQLList_HomePageYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSQLList_HomePageYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTDrefreshStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTDrefreshStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExportExcelAdjustmentsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExportExcelAdjustmentsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_AggregatedTotalsLayer1SheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_AggregatedTotalsLayer1SheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_ValidateGeneralWorkflowErrorMessageStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_ValidateGeneralWorkflowErrorMessageStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTList_CountrySignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STList_CountrySignOffRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTSignOffQuarter_BEStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STSignOffQuarter_BEStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTAdjustmentNonPMAStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STAdjustmentNonPMAStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNonPMA_BaseEntityDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNonPMA_BaseEntityDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTList_HomePageStatusStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STList_HomePageStatusStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNPLPortfolioSalesDetail_WbStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNPLPortfolioSalesDetail_WbStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTPMAAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STPMAAdjustmentDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTValidationVortexCognosDetailStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STValidationVortexCognosDetailStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelYTDDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelYTDDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExportYtdReportStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExportYtdReportStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_PMAAdjustmentDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_PMAAdjustmentDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTNPLPortfolioSalesDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STNPLPortfolioSalesDetailsStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTYTDrefresh2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STYTDrefresh2Structure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTUploadedExcel_PMAAdjumentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STUploadedExcel_PMAAdjumentStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStaticTabelsStructureStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStaticTabelsStructureStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStr_ValidateGeneralWorkflowResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStr_ValidateGeneralWorkflowResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploadedVortexCognosStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploadedVortexCognosStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTAdjustmentsDumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STAdjustmentsDumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTList_CountryYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STList_CountryYtdRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTStrLayerBookingSheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STStrLayerBookingSheetDataStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTLayers1234DumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STLayers1234DumpStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelUploaded_NonPMAAdjustmentResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelUploaded_NonPMAAdjustmentResultStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\Layer1.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\GCR Layers.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\NonPMATemplateDownloadResult.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\Layer3PMATemplateDownload.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\PMATemplateDownloadResult.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\CountryLevelReportTemplate.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\VortexCognosTemplateDownload.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\NonPMATemplateDownload.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Content Include="bin2\hidden_resources\LLPSignOff_BL\YTDUploadTemplate.xlsx">
+      <SubType>Component</SubType>
+	  </Content>
+	  <Compile Include="JSONSTCreate_EmailAsyncQueueRequestStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="CcSignOffAPICallbacks.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TimerAutomaticGCRRefresh.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelCloneSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelCloneSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelCellValueStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelCellValueStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="JSONSTExcelSheetPropertiesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="Structures.STExcelSheetPropertiesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelCellValueRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelCellValueStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelCloneSheetRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelCloneSheetStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.RCExcelSheetPropertiesRecord.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Include="TypeFactory.STExcelSheetPropertiesStructure.cs">
+      <SubType>Code</SubType>
+	  </Compile>
+
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != '' and Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://127.0.0.1/LLPSignOff_BL</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  
+</Project>
